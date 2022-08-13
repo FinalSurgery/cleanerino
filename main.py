@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import os
-import shutil
 
 
 
@@ -38,7 +37,7 @@ def cleaner(path):
     return path 
 
 # the primary logic of the script, it will establish if it needs to delete a file or not and move it to it's new location.
-def sort_file_logic(old,new,file,delete):
+def sort_file_logic(old,new,delete):
     if "delete" in delete:
         try:
             os.remove(f"{old}")
@@ -59,7 +58,7 @@ def main():
                 old_location = f"{path}{file}"
                 new_location = f"{establish_location(ext)}{file}"
                 try:
-                    sort_file_logic(old=old_location,new=new_location,file=file,delete=establish_location(ext))
+                    sort_file_logic(old=old_location,new=new_location,delete=establish_location(ext))
                 except FileNotFoundError: # if you want to add a new directory and new extensions in the dict above this will create the directory and recursivly run the function to continue the output
                     if "delete" not in establish_location(ext):
                         os.mkdir(establish_location(ext))                
