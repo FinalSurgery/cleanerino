@@ -45,7 +45,7 @@ def sort_file_logic(old,new,file,delete):
         except OSError as e:
             print(e)
     else:
-        pass
+        os.replace(src=old,dst=new)
 
 # main logic in charge of parsing outputs, error handling and looping the application 
 def main():
